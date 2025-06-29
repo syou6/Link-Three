@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHO - Official Link Hub</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Playfair+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent-color: #D4A574;
+            --accent-light: #e2c19b;
+            --accent-dark: #a67c4e;
+            --success-color: #10B981;
+            --warning-color: #F59E0B;
+            --danger-color: #EF4444;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b7280;
+            --text-tertiary: #9ca3af;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --border-color: #e5e7eb;
+            --shadow-light: rgba(0, 0, 0, 0.03);
+            --shadow-medium: rgba(0, 0, 0, 0.08);
+            --shadow-strong: rgba(0, 0, 0, 0.15);
+        }
+
+        .theme-dark {
+            --accent-color: #D4A574;
+            --accent-light: #e2c19b;
+            --accent-dark: #a67c4e;
+            --success-color: #10B981;
+            --warning-color: #F59E0B;
+            --danger-color: #EF4444;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-tertiary: #94a3b8;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --border-color: #334155;
+            --shadow-light: rgba(0, 0, 0, 0.2);
+            --shadow-medium: rgba(0, 0, 0, 0.3);
+            --shadow-strong: rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* タイポグラフィ */
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* アニメーション */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200px 0; }
+            100% { background-position: calc(200px + 100%) 0; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes ripple {
+            0% { box-shadow: 0 0 0 0 rgba(212, 165, 116, 0.4); }
+            100% { box-shadow: 0 0 0 15px rgba(212, 165, 116, 0); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(212, 165, 116, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(212, 165, 116, 0.6); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
+            40%, 43% { transform: translate3d(0, -8px, 0); }
+            70% { transform: translate3d(0, -4px, 0); }
+            90% { transform: translate3d(0, -2px, 0); }
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-pulse {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+
+        /* ヒーローセクション */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 1px 1px, var(--border-color) 1px, transparent 0);
+            background-size: 40px 40px;
+            opacity: 0.3;
+        }
+
+        .hero-blob {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 43% 57% 70% 30% / 38% 45% 55% 62%;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.05), rgba(212, 165, 116, 0.1));
+            animation: float 20s ease-in-out infinite alternate;
+            z-index: 0;
+            filter: blur(50px);
+            transform-origin: center center;
+            opacity: 0.8;
+        }
+
+        .hero-blob:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            right: -100px;
+            top: 20%;
+            border-radius: 57% 43% 30% 70% / 45% 62% 38% 55%;
+            animation-delay: -5s;
+            animation-duration: 15s;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.05), rgba(212, 165, 116, 0.08));
+        }
+
+        .hero-blob:nth-child(3) {
+            width: 300px;
+            height: 300px;
+            left: 5%;
+            bottom: 10%;
+            border-radius: 38% 62% 64% 36% / 42% 36% 64% 58%;
+            animation-delay: -10s;
+            animation-duration: 25s;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.03), rgba(212, 165, 116, 0.07));
+        }
+
+        /* 言語切替ボタン */
+        .language-selector {
+            position: fixed;
+            top: 32px;
+            left: 32px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            padding: 8px 12px;
+            box-shadow: 0 8px 25px var(--shadow-light);
+            backdrop-filter: blur(10px);
+        }
+
+        .language-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid transparent;
+        }
+
+        .language-btn.active {
+            border-color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .language-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ライブ活動インジケーター */
+        .live-activity {
+            position: fixed;
+            top: 80px;
+            right: 32px;
+            z-index: 999;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 12px 16px;
+            box-shadow: 0 8px 25px var(--shadow-medium);
+            backdrop-filter: blur(10px);
+            max-width: 280px;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success-color);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .live-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--success-color);
+        }
+
+        .live-content {
+            font-size: 11px;
+            color: var(--text-secondary);
+            line-height: 1.3;
+        }
+
+        /* プロフィール画像コンテナ */
+        .profile-image-container {
+            position: relative;
+            margin: 0 auto;
+            margin-bottom: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            padding: 5px;
+            box-shadow: 0 20px 60px var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+            margin: 0 auto;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 3s infinite;
+            z-index: 3;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+
+
+        .profile-badge {
+            position: absolute;
+            top: 0;
+            right: 30px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 30px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+            z-index: 3;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        /* ナビゲーション - デスクトップ用 */
+        .nav-toggle {
+            position: fixed;
+            top: 32px;
+            right: 32px;
+            z-index: 1000;
+            width: 56px;
+            height: 56px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px var(--shadow-light);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px var(--shadow-medium);
+        }
+
+        /* ハンバーガーメニュー - モバイル用 */
+        .hamburger-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1002;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            backdrop-filter: blur(10px);
+            gap: 4px;
+        }
+
+        .hamburger-line {
+            width: 20px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+            border-radius: 1px;
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* モバイルメニュー */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: var(--bg-primary);
+            border-left: 1px solid var(--border-color);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            backdrop-filter: blur(20px);
+            box-shadow: -5px 0 25px var(--shadow-medium);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-content {
+            padding: 80px 24px 24px;
+        }
+
+        .mobile-menu-section {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .mobile-menu-section:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .language-toggle.mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .language-toggle.mobile .lang-btn {
+            width: 100%;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 16px;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .language-toggle.mobile .lang-btn.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .theme-toggle.mobile {
+            width: 100%;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 16px;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .color-theme-selector.mobile {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: flex-start;
+        }
+
+        .color-theme-selector.mobile .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .color-theme-selector.mobile .color-option.active {
+            border-color: var(--bg-primary);
+            transform: scale(1.1);
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        /* メニューオーバーレイ */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* プロフィール情報 */
+        .profile-info {
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .profile-bio {
+            max-width: 600px;
+            margin: 0 auto 32px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .profile-bio::before, .profile-bio::after {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            color: var(--accent-color);
+            opacity: 0.2;
+            position: absolute;
+            line-height: 0;
+        }
+
+        .profile-bio::before {
+            top: 15px;
+            left: -20px;
+        }
+
+        .profile-bio::after {
+            bottom: -10px;
+            right: -20px;
+        }
+
+        .profile-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin: 24px 0;
+        }
+
+        .profile-tag {
+            background-color: var(--bg-tertiary);
+            color: var(--accent-color);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* 価値提案セクション */
+        .value-proposition {
+            max-width: 550px;
+            margin: 0 auto 32px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            color: white;
+            padding: 24px 32px;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(212, 165, 116, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        .value-proposition h3 {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .value-proposition p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* ソーシャルリンク */
+        .social-links-container {
+            position: relative;
+            z-index: 10;
+            margin-top: 20px;
+        }
+
+        .social-links {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .social-link {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 24px 32px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 30px var(--shadow-light);
+        }
+
+        .social-link.priority {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.05), rgba(212, 165, 116, 0.1));
+            border: 2px solid var(--accent-color);
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 45px var(--shadow-medium);
+            border-color: var(--accent-color);
+        }
+
+        .social-link:hover::before {
+            left: 100%;
+            opacity: 0.15;
+        }
+
+        .social-link:active {
+            transform: translateY(-2px);
+        }
+
+        .social-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 24px;
+            font-size: 24px;
+            position: relative;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon.youtube {
+            background: linear-gradient(135deg, #FF0000, #CC0000);
+        }
+
+        .social-icon.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+
+
+        .social-icon.tiktok {
+            background: linear-gradient(135deg, #25F4EE, #FE2C55);
+        }
+
+        .social-icon.twitter {
+            background: linear-gradient(135deg, #1DA1F2, #0C85D0);
+        }
+        
+        .social-icon.focusbuddy {
+            background: linear-gradient(135deg, #4361EE, #7209B7);
+        }
+
+        .social-link:hover .social-icon {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .social-content {
+            flex-grow: 1;
+        }
+
+        .social-content h3 {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-handle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .social-value {
+            font-size: 13px;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .social-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            max-width: 360px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
+        }
+
+        .social-stats {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .social-stat {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--bg-tertiary);
+            padding: 4px 8px;
+            border-radius: 12px;
+        }
+
+        .social-stat i {
+            font-size: 10px;
+        }
+
+        .social-stat.growth {
+            color: var(--success-color);
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .social-cta {
+            margin-left: 16px;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .cta-button {
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            display: block;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+        }
+
+        .cta-button.primary {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .urgency-indicator {
+            margin-top: 6px;
+            font-size: 10px;
+            color: var(--warning-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .badge {
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            padding: 3px 8px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .badge-verified {
+            background-color: rgba(29, 161, 242, 0.1);
+            color: #1DA1F2;
+        }
+
+        .badge-popular {
+            background-color: rgba(212, 165, 116, 0.1);
+            color: var(--accent-color);
+        }
+
+        .badge-new {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success-color);
+            animation: pulse 2s infinite;
+        }
+
+        .badge-exclusive {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--danger-color);
+        }
+
+        /* フッター */
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-tertiary);
+            position: relative;
+            margin-top: 60px;
+            z-index: 10;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .footer-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent-dark);
+            text-decoration: underline;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 20px;
+                min-height: 100vh;
+            }
+
+            .language-selector {
+                top: 20px;
+                left: 20px;
+                padding: 6px 10px;
+            }
+
+            .language-btn {
+                width: 24px;
+                height: 24px;
+            }
+
+            .live-activity {
+                top: 70px;
+                right: 16px;
+                max-width: 220px;
+                padding: 8px 12px;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .profile-bio::before, .profile-bio::after {
+                font-size: 40px;
+            }
+
+            .profile-bio::before {
+                top: 10px;
+                left: -10px;
+            }
+
+            .profile-bio::after {
+                bottom: -5px;
+                right: -10px;
+            }
+
+            .value-proposition {
+                padding: 20px 24px;
+                margin: 0 16px 32px;
+            }
+
+            .social-link {
+                padding: 20px 24px;
+                margin-bottom: 16px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .social-icon {
+                width: 48px;
+                height: 48px;
+                margin-right: 0;
+                margin-bottom: 16px;
+                font-size: 20px;
+            }
+
+            .social-stats {
+                justify-content: center;
+            }
+
+            .social-cta {
+                margin-left: 0;
+                margin-top: 16px;
+                min-width: auto;
+            }
+
+            .nav-toggle {
+                display: none;
+            }
+            
+            .hamburger-btn {
+                display: flex;
+            }
+
+            .language-selector {
+                display: none;
+            }
+
+            /* ソーシャルリンクのモバイル最適化 */
+            .social-links {
+                gap: 16px;
+            }
+
+            .social-link {
+                padding: 20px;
+                margin: 0;
+            }
+
+            .social-content h3 {
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+
+            .social-handle {
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+
+            .social-desc {
+                font-size: 14px;
+                line-height: 1.5;
+                margin-bottom: 16px;
+            }
+
+            .social-stats {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .social-stat {
+                font-size: 12px;
+                padding: 4px 8px;
+            }
+
+            .cta-button {
+                width: 100%;
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .social-icon {
+                width: 48px;
+                height: 48px;
+                margin-right: 16px;
+            }
+
+            .social-icon i {
+                font-size: 20px;
+            }
+
+            /* プロフィール画像のモバイル最適化 */
+            .profile-image-container {
+                width: 120px;
+                height: 120px;
+                margin: 0 auto 24px;
+            }
+
+            .profile-info h1 {
+                font-size: 2.5rem;
+                margin-bottom: 16px;
+            }
+
+            .profile-bio {
+                font-size: 14px;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+
+            .profile-tags {
+                gap: 8px;
+                margin-bottom: 32px;
+            }
+
+            .profile-tag {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            /* ヒーローセクションのモバイル最適化 */
+            .hero-section {
+                padding: 80px 0 60px;
+            }
+
+            .value-proposition h3 {
+                font-size: 18px;
+                margin-bottom: 12px;
+            }
+
+            .value-proposition p {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            .hero-blob {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 60px 16px;
+            }
+
+            .social-links {
+                max-width: 100%;
+            }
+
+            .profile-badge {
+                top: -5px;
+                right: 20px;
+                padding: 4px 8px;
+                font-size: 10px;
+            }
+
+
+
+            .profile-tags {
+                gap: 6px;
+            }
+
+            .profile-tag {
+                padding: 4px 10px;
+                font-size: 10px;
+            }
+        }
+
+        /* プリローダー */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+
+        .preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--border-color);
+            border-top: 2px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 初期状態（アニメーション用） */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* タイピングエフェクト */
+        .typing-effect {
+            overflow: hidden;
+            border-right: 2px solid var(--accent-color);
+            white-space: nowrap;
+            animation: typing 3s steps(30, end), blink 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- プリローダー -->
+    <div class="preloader" id="preloader" style="display: none;">
+        <div class="loader"></div>
+    </div>
+
+    <!-- 言語切替ボタン -->
+    <div class="language-selector">
+        <div class="language-btn active" data-lang="ja" style="background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/jp.svg');" aria-label="日本語"></div>
+        <div class="language-btn" data-lang="en" style="background-image: url('https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/flags/4x3/gb.svg');" aria-label="English"></div>
+    </div>
+
+    <!-- ライブ活動インジケーター -->
+    <div class="live-activity" id="liveActivity">
+        <div class="live-indicator">
+            <div class="live-dot"></div>
+            <span class="live-text">LIVE</span>
+        </div>
+        <div class="live-content" id="liveContent">
+            YouTubeで新しい動画を投稿中...
+        </div>
+    </div>
+
+    <!-- ナビゲーション切替（デスクトップ用） -->
+    <button class="nav-toggle" id="theme-toggle" aria-label="テーマ切替">
+        <i class="fas fa-moon" id="moon-icon"></i>
+        <i class="fas fa-sun" id="sun-icon" style="display: none;"></i>
+    </button>
+
+    <!-- ハンバーガーメニューボタン（モバイル用） -->
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="メニュー">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+
+    <!-- メニューオーバーレイ -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <!-- モバイルメニュー -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <!-- 言語切替 -->
+            <div class="mobile-menu-section">
+                <h3>言語 / Language</h3>
+                <div class="language-toggle mobile">
+                    <button onclick="switchLanguage('ja')" class="lang-btn active" id="lang-ja-mobile">
+                        <span class="flag-icon">🇯🇵</span>
+                        <span>日本語</span>
+                    </button>
+                    <button onclick="switchLanguage('en')" class="lang-btn" id="lang-en-mobile">
+                        <span class="flag-icon">🇬🇧</span>
+                        <span>English</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- ダークモード切替 -->
+            <div class="mobile-menu-section">
+                <h3>テーマ</h3>
+                <button class="theme-toggle mobile" onclick="toggleTheme()" aria-label="テーマ切替">
+                    <i class="fas fa-moon" id="mobile-moon-icon"></i>
+                    <i class="fas fa-sun" id="mobile-sun-icon" style="display: none;"></i>
+                    <span>ダークモード</span>
+                </button>
+            </div>
+            
+            <!-- カラーテーマセレクター -->
+            <div class="mobile-menu-section">
+                <h3>カラーテーマ</h3>
+                <div class="color-theme-selector mobile" id="mobile-color-theme">
+                    <span class="color-option active" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);" data-color="#8b5cf6" data-secondary="#7c3aed" data-accent="#a78bfa"></span>
+                    <span class="color-option" style="background: linear-gradient(135deg, #ec4899, #db2777);" data-color="#ec4899" data-secondary="#db2777" data-accent="#f472b6"></span>
+                    <span class="color-option" style="background: linear-gradient(135deg, #10b981, #059669);" data-color="#10b981" data-secondary="#059669" data-accent="#34d399"></span>
+                    <span class="color-option" style="background: linear-gradient(135deg, #f59e0b, #d97706);" data-color="#f59e0b" data-secondary="#d97706" data-accent="#fbbf24"></span>
+                    <span class="color-option" style="background: linear-gradient(135deg, #3b82f6, #2563eb);" data-color="#3b82f6" data-secondary="#2563eb" data-accent="#60a5fa"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ヒーローセクション -->
+    <section class="hero-section">
+        <!-- 装飾背景要素 -->
+        <div class="hero-blob"></div>
+        <div class="hero-blob"></div>
+        <div class="hero-blob"></div>
+        <div class="hero-pattern"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center animate-on-scroll">
+                <!-- プロフィール画像 -->
+                <div class="profile-image-container">
+                    <div class="profile-image animate-float">
+                        <img src="./t0ivjqcgou.png" alt="SHO" />
+                    </div>
+
+                    <div class="profile-badge">Creator</div>
+                </div>
+
+                <!-- プロフィール情報 -->
+                <div class="profile-info">
+                    <!-- メインタイトル -->
+                    <h1 class="font-display text-4xl md:text-6xl font-light text-center mb-3" style="color: var(--text-primary); display: flex; justify-content: center; align-items: center;">
+                        SHO
+                    </h1>
+                    
+                    <!-- サブタイトル -->
+                    <p class="text-lg md:text-xl mb-8 font-light typing-effect" style="color: var(--text-secondary);">
+                        クリエイティブ・デザイナー
+                    </p>
+
+                    <!-- プロフィール紹介文 -->
+                    <div class="profile-bio">
+                        自分らしさを大切にした作品づくりとライフスタイルを発信しています。最新の活動やプロジェクト情報は各SNSでチェックしてください。
+                    </div>
+
+                    <!-- タグ -->
+                    <div class="profile-tags">
+                        <span class="profile-tag">クリエイティブ</span>
+                        <span class="profile-tag">デザイン</span>
+                        <span class="profile-tag">ライフスタイル</span>
+                        <span class="profile-tag">トレンド</span>
+                    </div>
+                </div>
+
+                <!-- 価値提案セクション -->
+                <div class="value-proposition animate-on-scroll">
+                    <h3>🎯 フォローする価値がここにあります</h3>
+                    <p>独占コンテンツ、制作の裏側、最新トレンド情報を毎日お届け。クリエイティブなインスピレーションが欲しい方必見！</p>
+                </div>
+
+                <!-- ソーシャルリンクセクション -->
+                <div class="social-links-container">
+                    <div class="social-links">
+                        <!-- YouTubeリンク -->
+                        <a href="https://www.youtube.com/@Lofiboymusic962" target="_blank" class="social-link priority stagger-item" data-delay="0">
+                            <div class="social-icon youtube">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="social-content">
+                                <h3>YouTube <span class="badge badge-verified">公式</span></h3>
+                                <p class="social-handle">@Lofiboymusic962</p>
+                                <div class="social-value">
+                                    <i class="fas fa-star"></i>
+                                    <span>制作プロセスの裏側＆チュートリアル限定配信</span>
+                                </div>
+                                <p class="social-desc">デザインの制作過程をリアルタイムで公開。プロのテクニックとコツを学べる貴重なコンテンツ</p>
+                                <div class="social-stats">
+                                    <span class="social-stat growth"><i class="fas fa-trending-up"></i> <span>+15% 今月</span></span>
+                                    <span class="social-stat"><i class="fas fa-users"></i> <span>5.2K 登録者</span></span>
+                                    <span class="social-stat"><i class="fas fa-play"></i> <span>52 動画</span></span>
+                                </div>
+                            </div>
+                            <div class="social-cta">
+                                <a href="https://www.youtube.com/@Lofiboymusic962" class="cta-button primary">今すぐ登録</a>
+                                <div class="urgency-indicator">
+                                    <i class="fas fa-clock"></i>
+                                    <span>新作アップロード中</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Instagramリンク -->
+                        <a href="https://www.instagram.com/sk1890kin470" target="_blank" class="social-link stagger-item" data-delay="100">
+                            <div class="social-icon instagram">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div class="social-content">
+                                <h3>Instagram <span class="badge badge-popular">人気</span></h3>
+                                <p class="social-handle">@sk1890kin470</p>
+                                <div class="social-value">
+                                    <i class="fas fa-image"></i>
+                                    <span>日常のインスピレーション＆作品ギャラリー</span>
+                                </div>
+                                <p class="social-desc">ライフスタイルとクリエイティブな瞬間を毎日シェア。トレンド情報と制作の息抜き風景も</p>
+                                <div class="social-stats">
+                                    <span class="social-stat growth"><i class="fas fa-heart"></i> <span>+22% エンゲージ</span></span>
+                                    <span class="social-stat"><i class="fas fa-users"></i> <span>8.4K フォロワー</span></span>
+                                    <span class="social-stat"><i class="fas fa-image"></i> <span>142 投稿</span></span>
+                                </div>
+                            </div>
+                            <div class="social-cta">
+                                <a href="https://www.instagram.com/sk1890kin470" class="cta-button">フォロー</a>
+                                <div class="urgency-indicator">
+                                    <i class="fas fa-fire"></i>
+                                    <span>ストーリー更新中</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- TikTokリンク -->
+                        <a href="https://www.tiktok.com/@nazonazo18570" target="_blank" class="social-link stagger-item" data-delay="200">
+                            <div class="social-icon tiktok">
+                                <i class="fab fa-tiktok"></i>
+                            </div>
+                            <div class="social-content">
+                                <h3>TikTok <span class="badge badge-new">新着</span></h3>
+                                <p class="social-handle">@nazonazo18570</p>
+                                <div class="social-value">
+                                    <i class="fas fa-zap"></i>
+                                    <span>60秒で学ぶデザインテクニック</span>
+                                </div>
+                                <p class="social-desc">短時間で学べるデザインのコツとトレンド分析。バズっているクリエイティブ手法を解説</p>
+                                <div class="social-stats">
+                                    <span class="social-stat growth"><i class="fas fa-rocket"></i> <span>バイラル中</span></span>
+                                    <span class="social-stat"><i class="fas fa-users"></i> <span>3.7K フォロワー</span></span>
+                                    <span class="social-stat"><i class="fas fa-thumbs-up"></i> <span>26.1K いいね</span></span>
+                                </div>
+                            </div>
+                            <div class="social-cta">
+                                <a href="https://www.tiktok.com/@nazonazo18570" class="cta-button">フォロー</a>
+                                <div class="urgency-indicator">
+                                    <i class="fas fa-trending-up"></i>
+                                    <span>トレンド投稿予定</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- X (Twitter) リンク -->
+                        <a href="https://x.com/k8292288065827" target="_blank" class="social-link stagger-item" data-delay="300">
+                            <div class="social-icon twitter">
+                                <i class="fab fa-x-twitter"></i>
+                            </div>
+                            <div class="social-content">
+                                <h3>X (Twitter) <span class="badge badge-exclusive">限定</span></h3>
+                                <p class="social-handle">@k8292288065827</p>
+                                <div class="social-value">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>リアルタイム思考＆業界インサイト</span>
+                                </div>
+                                <p class="social-desc">制作中の気づきや業界の最新動向をリアルタイムでシェア。フォロワー限定の情報も多数</p>
+                                <div class="social-stats">
+                                    <span class="social-stat growth"><i class="fas fa-comments"></i> <span>高エンゲージ</span></span>
+                                    <span class="social-stat"><i class="fas fa-users"></i> <span>2.3K フォロワー</span></span>
+                                    <span class="social-stat"><i class="fas fa-comment"></i> <span>1.8K ツイート</span></span>
+                                </div>
+                            </div>
+                            <div class="social-cta">
+                                <a href="https://x.com/k8292288065827" class="cta-button">フォロー</a>
+                                <div class="urgency-indicator">
+                                    <i class="fas fa-bell"></i>
+                                    <span>通知ON推奨</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Focus Buddy リンク -->
+                        <a href="https://focusbuddy.it.com" target="_blank" class="social-link stagger-item" data-delay="400">
+                            <div class="social-icon focusbuddy">
+                                <img src="./29ymv7hnr6.jpg" alt="Focus Buddy" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            </div>
+                            <div class="social-content">
+                                <h3>Focus Buddy <span class="badge badge-new">新サービス</span></h3>
+                                <p class="social-handle">ADHD子供向けタスク管理</p>
+                                <div class="social-value">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>集中力サポート＆タスク管理ツール</span>
+                                </div>
+                                <p class="social-desc">ADHDの子供たちが楽しく簡単にタスクを管理できるアプリ。集中力向上と自己管理能力の発達をサポート</p>
+                                <div class="social-stats">
+                                    <span class="social-stat growth"><i class="fas fa-chart-line"></i> <span>新規リリース</span></span>
+                                    <span class="social-stat"><i class="fas fa-download"></i> <span>1.2K インストール</span></span>
+                                    <span class="social-stat"><i class="fas fa-star"></i> <span>4.8 評価</span></span>
+                                </div>
+                            </div>
+                            <div class="social-cta">
+                                <a href="https://focusbuddy.it.com" class="cta-button" style="background: white; color: #4361EE; border: 2px solid #4361EE;">今すぐ試す</a>
+                                <div class="urgency-indicator">
+                                    <i class="fas fa-gift"></i>
+                                    <span>無料トライアル中</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- フッター -->
+                <div class="footer animate-on-scroll">
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">お問い合わせ</a>
+                        <a href="#" class="footer-link">プライバシーポリシー</a>
+                    </div>
+                    <p>© 2025 SHO. All rights reserved.</p>
+                    <p style="font-size: 12px; margin-top: 8px; color: var(--text-tertiary);">
+                        <i class="fas fa-heart" style="color: var(--danger-color);"></i> 
+                        <span>フォローしていただき、ありがとうございます！</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        // 多言語対応データ（拡張版）
+        const translations = {
+            ja: {
+                // 基本情報
+                subtitle: 'クリエイティブ・デザイナー',
+                bio: '自分らしさを大切にした作品づくりとライフスタイルを発信しています。最新の活動やプロジェクト情報は各SNSでチェックしてください。',
+                valueTitle: '🎯 フォローする価値がここにあります',
+                valueText: '独占コンテンツ、制作の裏側、最新トレンド情報を毎日お届け。クリエイティブなインスピレーションが欲しい方必見！',
+                
+                // タグ
+                tagCreative: 'クリエイティブ',
+                tagDesign: 'デザイン',
+                tagLifestyle: 'ライフスタイル',
+                tagTrend: 'トレンド',
+                
+                // バッジ
+                badgeOfficial: '公式',
+                badgePopular: '人気',
+                badgeNew: '新着',
+                badgeExclusive: '限定',
+                
+                // YouTube
+                youtubeValue: '制作プロセスの裏側＆チュートリアル限定配信',
+                youtubeDesc: 'デザインの制作過程をリアルタイムで公開。プロのテクニックとコツを学べる貴重なコンテンツ',
+                youtubeGrowth: '+15% 今月',
+                youtubeSubscribers: '5.2K 登録者',
+                youtubeVideos: '52 動画',
+                youtubeCta: '今すぐ登録',
+                youtubeUrgency: '新作アップロード中',
+                
+                // Instagram
+                instagramValue: '日常のインスピレーション＆作品ギャラリー',
+                instagramDesc: 'ライフスタイルとクリエイティブな瞬間を毎日シェア。トレンド情報と制作の息抜き風景も',
+                instagramEngagement: '+22% エンゲージ',
+                instagramFollowers: '8.4K フォロワー',
+                instagramPosts: '142 投稿',
+                instagramCta: 'フォロー',
+                instagramUrgency: 'ストーリー更新中',
+                
+                // TikTok
+                tiktokValue: '60秒で学ぶデザインテクニック',
+                tiktokDesc: '短時間で学べるデザインのコツとトレンド分析。バズっているクリエイティブ手法を解説',
+                tiktokTrending: 'バイラル中',
+                tiktokFollowers: '3.7K フォロワー',
+                tiktokLikes: '26.1K いいね',
+                tiktokCta: 'フォロー',
+                tiktokUrgency: 'トレンド投稿予定',
+                
+                // Focus Buddy
+                focusbuddyValue: '集中力サポート＆タスク管理ツール',
+                focusbuddyDesc: 'ADHDの子供たちが楽しく簡単にタスクを管理できるアプリ。集中力向上と自己管理能力の発達をサポート',
+                focusbuddyRelease: '新規リリース',
+                focusbuddyInstalls: '1.2K インストール',
+                focusbuddyRating: '4.8 評価',
+                focusbuddyCta: '今すぐ試す',
+                focusbuddyUrgency: '無料トライアル中',
+                
+                // X (Twitter)
+                xValue: 'リアルタイム思考＆業界インサイト',
+                xDesc: '制作中の気づきや業界の最新動向をリアルタイムでシェア。フォロワー限定の情報も多数',
+                xEngagement: '高エンゲージ',
+                xFollowers: '2.3K フォロワー',
+                xTweets: '1.8K ツイート',
+                xCta: 'フォロー',
+                xUrgency: '通知ON推奨',
+                
+                // フッター
+                contact: 'お問い合わせ',
+                privacy: 'プライバシーポリシー',
+                copyright: '© 2025 SHO. All rights reserved.',
+                thanks: 'フォローしていただき、ありがとうございます！'
+            },
+            en: {
+                // 基本情報
+                subtitle: 'Creative Designer',
+                bio: 'I share authentic creative works and lifestyle content. Check my social channels for the latest activities and project updates.',
+                valueTitle: '🎯 Here\'s Why You Should Follow',
+                valueText: 'Daily exclusive content, behind-the-scenes looks, and the latest trend insights. A must-follow for anyone seeking creative inspiration!',
+                
+                // タグ
+                tagCreative: 'Creative',
+                tagDesign: 'Design',
+                tagLifestyle: 'Lifestyle',
+                tagTrend: 'Trends',
+                
+                // バッジ
+                badgeOfficial: 'Official',
+                badgePopular: 'Popular',
+                badgeNew: 'New',
+                badgeExclusive: 'Exclusive',
+                
+                // YouTube
+                youtubeValue: 'Behind-the-scenes & Exclusive Tutorials',
+                youtubeDesc: 'Real-time design process reveals. Learn valuable professional techniques and tips',
+                youtubeGrowth: '+15% this month',
+                youtubeSubscribers: '5.2K subscribers',
+                youtubeVideos: '52 videos',
+                youtubeCta: 'Subscribe Now',
+                youtubeUrgency: 'New upload in progress',
+                
+                // Instagram
+                instagramValue: 'Daily Inspiration & Work Gallery',
+                instagramDesc: 'Daily shares of lifestyle and creative moments. Trend information and behind-the-scenes glimpses',
+                instagramEngagement: '+22% engagement',
+                instagramFollowers: '8.4K followers',
+                instagramPosts: '142 posts',
+                instagramCta: 'Follow',
+                instagramUrgency: 'Story updates live',
+                
+                // TikTok
+                tiktokValue: 'Design Techniques in 60 Seconds',
+                tiktokDesc: 'Quick design tips and trend analysis. Explaining viral creative techniques',
+                tiktokTrending: 'Going viral',
+                tiktokFollowers: '3.7K followers',
+                tiktokLikes: '26.1K likes',
+                tiktokCta: 'Follow',
+                tiktokUrgency: 'Trending post soon',
+                
+                // Focus Buddy
+                focusbuddyValue: 'Focus Support & Task Management Tool',
+                focusbuddyDesc: 'App for ADHD kids to manage tasks easily and enjoyably. Supports focus improvement and self-management skill development',
+                focusbuddyRelease: 'New Release',
+                focusbuddyInstalls: '1.2K installs',
+                focusbuddyRating: '4.8 rating',
+                focusbuddyCta: 'Try Now',
+                focusbuddyUrgency: 'Free Trial Available',
+                
+                // X (Twitter)
+                xValue: 'Real-time Thoughts & Industry Insights',
+                xDesc: 'Sharing creative insights and industry trends in real-time. Exclusive information for followers',
+                xEngagement: 'High engagement',
+                xFollowers: '2.3K followers',
+                xTweets: '1.8K tweets',
+                xCta: 'Follow',
+                xUrgency: 'Notifications recommended',
+                
+                // フッター
+                contact: 'Contact',
+                privacy: 'Privacy Policy',
+                copyright: '© 2025 SHO. All rights reserved.',
+                thanks: 'Thank you for following!'
+            }
+        };
+
+        // 現在の言語（デフォルトは日本語）
+        let currentLang = 'ja';
+
+        // 安全な言語切替関数（拡張版）
+        function switchLanguage(lang) {
+            if (!translations[lang]) {
+                console.warn('Language not supported:', lang);
+                return;
+            }
+
+            currentLang = lang;
+            
+            // デスクトップとモバイルの言語ボタンを同期
+            const allLangButtons = document.querySelectorAll('.lang-btn');
+            allLangButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.id.includes(lang)) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // 基本要素を安全に更新
+            const basicElements = {
+                subtitle: document.querySelector('.typing-effect'),
+                bio: document.querySelector('.profile-bio'),
+                valueTitle: document.querySelector('.value-proposition h3'),
+                valueText: document.querySelector('.value-proposition p'),
+                contact: document.querySelector('.footer-links a:first-child'),
+                privacy: document.querySelector('.footer-links a:last-child'),
+                copyright: document.querySelector('.footer p:first-of-type'),
+                thanks: document.querySelector('.footer p:last-of-type span')
+            };
+
+            // タグ要素を更新
+            const tagElements = {
+                tagCreative: document.querySelector('.profile-tag:nth-child(1)'),
+                tagDesign: document.querySelector('.profile-tag:nth-child(2)'),
+                tagLifestyle: document.querySelector('.profile-tag:nth-child(3)'),
+                tagTrend: document.querySelector('.profile-tag:nth-child(4)')
+            };
+
+            // SNS要素を更新（より具体的なセレクター）
+            const socialLinks = document.querySelectorAll('.social-link');
+            const snsElements = {};
+            
+            // YouTube (1番目のソーシャルリンク)
+            if (socialLinks[0]) {
+                snsElements.youtubeValue = socialLinks[0].querySelector('.social-value span');
+                snsElements.youtubeDesc = socialLinks[0].querySelector('.social-desc');
+                snsElements.youtubeGrowth = socialLinks[0].querySelector('.social-stat.growth span');
+                snsElements.youtubeSubscribers = socialLinks[0].querySelectorAll('.social-stat span')[1];
+                snsElements.youtubeVideos = socialLinks[0].querySelectorAll('.social-stat span')[2];
+                snsElements.youtubeCta = socialLinks[0].querySelector('.cta-button');
+                snsElements.youtubeUrgency = socialLinks[0].querySelector('.urgency-indicator span');
+            }
+            
+            // Instagram (2番目のソーシャルリンク)
+            if (socialLinks[1]) {
+                snsElements.instagramValue = socialLinks[1].querySelector('.social-value span');
+                snsElements.instagramDesc = socialLinks[1].querySelector('.social-desc');
+                snsElements.instagramEngagement = socialLinks[1].querySelector('.social-stat.growth span');
+                snsElements.instagramFollowers = socialLinks[1].querySelectorAll('.social-stat span')[1];
+                snsElements.instagramPosts = socialLinks[1].querySelectorAll('.social-stat span')[2];
+                snsElements.instagramCta = socialLinks[1].querySelector('.cta-button');
+                snsElements.instagramUrgency = socialLinks[1].querySelector('.urgency-indicator span');
+            }
+            
+            // TikTok (3番目のソーシャルリンク)
+            if (socialLinks[2]) {
+                snsElements.tiktokValue = socialLinks[2].querySelector('.social-value span');
+                snsElements.tiktokDesc = socialLinks[2].querySelector('.social-desc');
+                snsElements.tiktokTrending = socialLinks[2].querySelector('.social-stat.growth span');
+                snsElements.tiktokFollowers = socialLinks[2].querySelectorAll('.social-stat span')[1];
+                snsElements.tiktokLikes = socialLinks[2].querySelectorAll('.social-stat span')[2];
+                snsElements.tiktokCta = socialLinks[2].querySelector('.cta-button');
+                snsElements.tiktokUrgency = socialLinks[2].querySelector('.urgency-indicator span');
+            }
+            
+            // X (4番目のソーシャルリンク)
+            if (socialLinks[3]) {
+                snsElements.xValue = socialLinks[3].querySelector('.social-value span');
+                snsElements.xDesc = socialLinks[3].querySelector('.social-desc');
+                snsElements.xEngagement = socialLinks[3].querySelector('.social-stat.growth span');
+                snsElements.xFollowers = socialLinks[3].querySelectorAll('.social-stat span')[1];
+                snsElements.xTweets = socialLinks[3].querySelectorAll('.social-stat span')[2];
+                snsElements.xCta = socialLinks[3].querySelector('.cta-button');
+                snsElements.xUrgency = socialLinks[3].querySelector('.urgency-indicator span');
+            }
+            
+            // Focus Buddy (5番目のソーシャルリンク)
+            if (socialLinks[4]) {
+                snsElements.focusbuddyValue = socialLinks[4].querySelector('.social-value span');
+                snsElements.focusbuddyDesc = socialLinks[4].querySelector('.social-desc');
+                snsElements.focusbuddyRelease = socialLinks[4].querySelector('.social-stat.growth span');
+                snsElements.focusbuddyInstalls = socialLinks[4].querySelectorAll('.social-stat span')[1];
+                snsElements.focusbuddyRating = socialLinks[4].querySelectorAll('.social-stat span')[2];
+                snsElements.focusbuddyCta = socialLinks[4].querySelector('.cta-button');
+                snsElements.focusbuddyUrgency = socialLinks[4].querySelector('.urgency-indicator span');
+            }
+            
+
+
+            // バッジ要素を更新
+            const badgeElements = {
+                badgeOfficial: document.querySelector('.badge-verified'),
+                badgePopular: document.querySelector('.badge-popular'),
+                badgeNew: document.querySelector('.badge-new'),
+                badgeExclusive: document.querySelector('.badge-exclusive')
+            };
+
+            // すべての要素グループを統合
+            const allElements = {...basicElements, ...tagElements, ...snsElements, ...badgeElements};
+
+            // 各要素を安全に更新
+            Object.keys(allElements).forEach(key => {
+                const element = allElements[key];
+                if (element && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // 言語ボタンの状態更新
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // 設定を保存
+            localStorage.setItem('language', lang);
+            console.log('Language switched to:', lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // プリローダー
+            const preloader = document.getElementById('preloader');
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 300);
+
+            // ライブ活動インジケーター
+            const liveContent = document.getElementById('liveContent');
+            const activities = [
+                'YouTubeで新しい動画を投稿中...',
+                'Instagramストーリーを更新中...',
+                'TikTokでトレンド分析中...',
+                'Xでリアルタイム情報をシェア中...',
+                '新しいプロジェクトを制作中...'
+            ];
+            
+            let activityIndex = 0;
+            setInterval(() => {
+                activityIndex = (activityIndex + 1) % activities.length;
+                liveContent.textContent = activities[activityIndex];
+            }, 4000);
+
+            // ダークモード切替
+            const themeToggle = document.getElementById('theme-toggle');
+            const moonIcon = document.getElementById('moon-icon');
+            const sunIcon = document.getElementById('sun-icon');
+            const mobileMoonIcon = document.getElementById('mobile-moon-icon');
+            const mobileSunIcon = document.getElementById('mobile-sun-icon');
+            const body = document.body;
+            
+            // ローカルストレージからテーマを読み込み
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                body.classList.add('theme-dark');
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+            }
+            
+            // テーマ切替関数（デスクトップとモバイル共通）
+            function toggleTheme() {
+                body.classList.toggle('theme-dark');
+                const isDark = body.classList.contains('theme-dark');
+                
+                // デスクトップアイコン切替
+                moonIcon.style.display = isDark ? 'none' : 'block';
+                sunIcon.style.display = isDark ? 'block' : 'none';
+                
+                // モバイルアイコン切替
+                if (mobileMoonIcon && mobileSunIcon) {
+                    mobileMoonIcon.style.display = isDark ? 'none' : 'block';
+                    mobileSunIcon.style.display = isDark ? 'block' : 'none';
+                }
+                
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+            
+            themeToggle.addEventListener('click', toggleTheme);
+
+            // ハンバーガーメニュー機能
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+            
+            function toggleMobileMenu() {
+                hamburgerBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                
+                // ボディのスクロールを制御
+                if (mobileMenu.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            }
+            
+            hamburgerBtn.addEventListener('click', toggleMobileMenu);
+            menuOverlay.addEventListener('click', toggleMobileMenu);
+            
+            // ESCキーでメニューを閉じる
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+            });
+
+            // モバイルメニューのカラーテーマ選択
+            const mobileColorOptions = document.querySelectorAll('#mobile-color-theme .color-option');
+            mobileColorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // アクティブ状態を更新
+                    mobileColorOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // テーマを適用
+                    const color = this.dataset.color;
+                    const secondary = this.dataset.secondary;
+                    const accent = this.dataset.accent;
+                    
+                    document.documentElement.style.setProperty('--accent-color', color);
+                    document.documentElement.style.setProperty('--accent-secondary', secondary);
+                    document.documentElement.style.setProperty('--accent-light', accent);
+                    
+                    // デスクトップ側の選択も同期
+                    const desktopOptions = document.querySelectorAll('.color-theme-selector:not(.mobile) .color-option');
+                    desktopOptions.forEach(opt => opt.classList.remove('active'));
+                    const matchingDesktop = Array.from(desktopOptions).find(opt => opt.dataset.color === color);
+                    if (matchingDesktop) {
+                        matchingDesktop.classList.add('active');
+                    }
+                    
+                    localStorage.setItem('selectedTheme', JSON.stringify({color, secondary, accent}));
+                });
+            });
+
+            // スクロールアニメーション
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -5% 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+
+            // スタガーアニメーション（遅延順番付けのアニメーション）
+            document.querySelectorAll('.stagger-item').forEach((el, index) => {
+                observer.observe(el);
+                const delay = el.dataset.delay || index * 100;
+                el.style.transitionDelay = `${delay}ms`;
+            });
+
+            // パララックス効果（軽量）
+            let ticking = false;
+            function updateParallax() {
+                const scrolled = window.pageYOffset;
+                const heroPattern = document.querySelector('.hero-pattern');
+                if (heroPattern) {
+                    heroPattern.style.transform = `translateY(${scrolled * 0.2}px)`;
+                }
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            });
+
+            // 初期アニメーションの遅延実行
+            setTimeout(() => {
+                document.querySelectorAll('.animate-on-scroll, .stagger-item').forEach((el, index) => {
+                    setTimeout(() => {
+                        if (el.getBoundingClientRect().top < window.innerHeight) {
+                            el.classList.add('visible');
+                        }
+                    }, index * 80);
+                });
+            }, 500);
+
+            // CTAボタンのクリック追跡（デモ用）
+            document.querySelectorAll('.cta-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // 実際のプロダクションではここでアナリティクスイベントを送信
+                    const platform = this.closest('.social-link').querySelector('.social-content h3').textContent.split(' ')[0];
+                    console.log(`CTA clicked: ${platform}`);
+                    
+                    // ボタンアニメーション
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+
+            // リアルタイム統計更新（デモ用）
+            setInterval(() => {
+                document.querySelectorAll('.social-stat.growth').forEach(stat => {
+                    // ランダムに成長率を更新（デモ用）
+                    const currentText = stat.textContent;
+                    if (currentText.includes('%')) {
+                        const randomGrowth = Math.floor(Math.random() * 30) + 10;
+                        const growthText = `+${randomGrowth}% 今月`;
+                        stat.innerHTML = `<i class="fas fa-trending-up"></i> <span>${growthText}</span>`;
+                    }
+                });
+            }, 10000); // 10秒ごとに更新
+
+            // ページ読み込み完了時の追加アニメーション
+            setTimeout(() => {
+                const typingElement = document.querySelector('.typing-effect');
+                if (typingElement) {
+                    typingElement.style.borderRight = 'none';
+                }
+            }, 3000);
+
+            // 言語切替ボタンの機能
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+
+            // 保存された言語設定を読み込み
+            const savedLang = localStorage.getItem('language');
+            if (savedLang && translations[savedLang]) {
+                switchLanguage(savedLang);
+            }
+
+            // テスト用：URLパラメータで言語設定
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            if (urlLang && translations[urlLang]) {
+                switchLanguage(urlLang);
+            }
+        });
+    </script>
+</body>
+</html>
