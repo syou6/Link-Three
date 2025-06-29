@@ -642,12 +642,12 @@
             margin-bottom: 20px;
             display: flex;
             align-items: center;
-            text-decoration: none;
             color: var(--text-primary);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
             box-shadow: 0 8px 30px var(--shadow-light);
+            cursor: default;
         }
 
         .social-link.priority {
@@ -678,9 +678,6 @@
             opacity: 0.15;
         }
 
-        .social-link:active {
-            transform: translateY(-2px);
-        }
 
         .social-icon {
             width: 56px;
@@ -766,10 +763,7 @@
         }
 
         .social-stats {
-            display: flex;
-            gap: 16px;
-            margin-top: 8px;
-            flex-wrap: wrap;
+            display: none;
         }
 
         .social-stat {
@@ -1312,7 +1306,7 @@
                 <div class="social-links-container">
                     <div class="social-links">
                         <!-- YouTubeリンク -->
-                        <a href="https://www.youtube.com/@Lofiboymusic962" target="_blank" class="social-link priority stagger-item" data-delay="0">
+                        <div class="social-link priority stagger-item" data-delay="0">
                             <div class="social-icon youtube">
                                 <i class="fab fa-youtube"></i>
                             </div>
@@ -1337,10 +1331,10 @@
                                     <span>新作アップロード中</span>
                                 </div>
                             </div>
-                        </a>
+                        </div>
 
                         <!-- Instagramリンク -->
-                        <a href="https://www.instagram.com/sk1890kin470" target="_blank" class="social-link stagger-item" data-delay="100">
+                        <div class="social-link stagger-item" data-delay="100">
                             <div class="social-icon instagram">
                                 <i class="fab fa-instagram"></i>
                             </div>
@@ -1365,10 +1359,10 @@
                                     <span>ストーリー更新中</span>
                                 </div>
                             </div>
-                        </a>
+                        </div>
 
                         <!-- TikTokリンク -->
-                        <a href="https://www.tiktok.com/@nazonazo18570" target="_blank" class="social-link stagger-item" data-delay="200">
+                        <div class="social-link stagger-item" data-delay="200">
                             <div class="social-icon tiktok">
                                 <i class="fab fa-tiktok"></i>
                             </div>
@@ -1393,63 +1387,63 @@
                                     <span>トレンド投稿予定</span>
                                 </div>
                             </div>
-                        </a>
+                        </div>
 
                         <!-- X (Twitter) リンク -->
-                        <a href="https://x.com/k8292288065827" target="_blank" class="social-link stagger-item" data-delay="300">
+                        <div class="social-link stagger-item" data-delay="300">
                             <div class="social-icon twitter">
                                 <i class="fab fa-x-twitter"></i>
                             </div>
                             <div class="social-content">
-                                <h3>X (Twitter) <span class="badge badge-exclusive">限定</span></h3>
+                                <h3>X (Twitter) <span class="badge badge-exclusive" data-i18n="badgeExclusive">限定</span></h3>
                                 <p class="social-handle">@k8292288065827</p>
                                 <div class="social-value">
                                     <i class="fas fa-lightbulb"></i>
-                                    <span>リアルタイム思考＆業界インサイト</span>
+                                    <span data-i18n="xValue">リアルタイム思考＆業界インサイト</span>
                                 </div>
-                                <p class="social-desc">制作中の気づきや業界の最新動向をリアルタイムでシェア。フォロワー限定の情報も多数</p>
+                                <p class="social-desc" data-i18n="xDesc">制作中の気づきや業界の最新動向をリアルタイムでシェア。フォロワー限定の情報も多数</p>
                                 <div class="social-stats">
-                                    <span class="social-stat growth"><i class="fas fa-comments"></i> <span>高エンゲージ</span></span>
-                                    <span class="social-stat"><i class="fas fa-users"></i> <span>2.3K フォロワー</span></span>
-                                    <span class="social-stat"><i class="fas fa-comment"></i> <span>1.8K ツイート</span></span>
+                                    <span class="social-stat growth"><i class="fas fa-comments"></i> <span data-i18n="xEngagement">高エンゲージ</span></span>
+                                    <span class="social-stat"><i class="fas fa-users"></i> <span data-i18n="xFollowers">2.3K フォロワー</span></span>
+                                    <span class="social-stat"><i class="fas fa-comment"></i> <span data-i18n="xTweets">1.8K ツイート</span></span>
                                 </div>
                             </div>
                             <div class="social-cta">
-                                <a href="https://x.com/k8292288065827" class="cta-button">フォロー</a>
+                                <a href="https://x.com/k8292288065827" class="cta-button" data-i18n="xCta">フォロー</a>
                                 <div class="urgency-indicator">
                                     <i class="fas fa-bell"></i>
-                                    <span>通知ON推奨</span>
+                                    <span data-i18n="xUrgency">通知ON推奨</span>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                         
                         <!-- Focus Buddy リンク -->
-                        <a href="https://focusbuddy.it.com" target="_blank" class="social-link stagger-item" data-delay="400">
+                        <div class="social-link stagger-item" data-delay="400">
                             <div class="social-icon focusbuddy">
                                 <img src="./29ymv7hnr6.jpg" alt="Focus Buddy" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
                             </div>
                             <div class="social-content">
-                                <h3>Focus Buddy <span class="badge badge-new">新サービス</span></h3>
-                                <p class="social-handle">ADHD子供向けタスク管理</p>
+                                <h3>Focus Buddy <span class="badge badge-new" data-i18n="badgeNewService">新サービス</span></h3>
+                                <p class="social-handle" data-i18n="focusbuddySubtitle">ADHD子供向けタスク管理</p>
                                 <div class="social-value">
                                     <i class="fas fa-check-circle"></i>
-                                    <span>集中力サポート＆タスク管理ツール</span>
+                                    <span data-i18n="focusbuddyValue">集中力サポート＆タスク管理ツール</span>
                                 </div>
-                                <p class="social-desc">ADHDの子供たちが楽しく簡単にタスクを管理できるアプリ。集中力向上と自己管理能力の発達をサポート</p>
+                                <p class="social-desc" data-i18n="focusbuddyDesc">ADHDの子供たちが楽しく簡単にタスクを管理できるアプリ。集中力向上と自己管理能力の発達をサポート</p>
                                 <div class="social-stats">
-                                    <span class="social-stat growth"><i class="fas fa-chart-line"></i> <span>新規リリース</span></span>
-                                    <span class="social-stat"><i class="fas fa-download"></i> <span>1.2K インストール</span></span>
-                                    <span class="social-stat"><i class="fas fa-star"></i> <span>4.8 評価</span></span>
+                                    <span class="social-stat growth"><i class="fas fa-chart-line"></i> <span data-i18n="focusbuddyRelease">新規リリース</span></span>
+                                    <span class="social-stat"><i class="fas fa-download"></i> <span data-i18n="focusbuddyInstalls">1.2K インストール</span></span>
+                                    <span class="social-stat"><i class="fas fa-star"></i> <span data-i18n="focusbuddyRating">4.8 評価</span></span>
                                 </div>
                             </div>
                             <div class="social-cta">
-                                <a href="https://focusbuddy.it.com" class="cta-button" style="background: white; color: #4361EE; border: 2px solid #4361EE;">今すぐ試す</a>
+                                <a href="https://focusbuddy.it.com" class="cta-button" style="background: white; color: #4361EE; border: 2px solid #4361EE;" data-i18n="focusbuddyCta">今すぐ試す</a>
                                 <div class="urgency-indicator">
                                     <i class="fas fa-gift"></i>
-                                    <span>無料トライアル中</span>
+                                    <span data-i18n="focusbuddyUrgency">無料トライアル中</span>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
                 
@@ -1479,6 +1473,7 @@
                 bio: '自分らしさを大切にした作品づくりとライフスタイルを発信しています。最新の活動やプロジェクト情報は各SNSでチェックしてください。',
                 valueTitle: '🎯 フォローする価値がここにあります',
                 valueText: '独占コンテンツ、制作の裏側、最新トレンド情報を毎日お届け。クリエイティブなインスピレーションが欲しい方必見！',
+                profileBadge: 'Creator',
                 
                 // タグ
                 tagCreative: 'クリエイティブ',
@@ -1491,6 +1486,28 @@
                 badgePopular: '人気',
                 badgeNew: '新着',
                 badgeExclusive: '限定',
+                badgeNewService: '新サービス',
+                
+                // ライブ活動
+                liveActivities: [
+                    'YouTubeで新しい動画を投稿中...',
+                    'Instagramストーリーを更新中...',
+                    'TikTokでトレンド分析中...',
+                    'Xでリアルタイム情報をシェア中...',
+                    '新しいプロジェクトを制作中...'
+                ],
+                
+                // モバイルメニュー
+                mobileMenuLanguage: '言語 / Language',
+                mobileMenuTheme: 'テーマ',
+                mobileMenuColorTheme: 'カラーテーマ',
+                mobileMenuDarkMode: 'ダークモード',
+                langJapanese: '日本語',
+                langEnglish: 'English',
+                
+                // その他
+                thisMonth: '今月',
+                focusbuddySubtitle: 'ADHD子供向けタスク管理',
                 
                 // YouTube
                 youtubeValue: '制作プロセスの裏側＆チュートリアル限定配信',
@@ -1549,6 +1566,7 @@
                 bio: 'I share authentic creative works and lifestyle content. Check my social channels for the latest activities and project updates.',
                 valueTitle: '🎯 Here\'s Why You Should Follow',
                 valueText: 'Daily exclusive content, behind-the-scenes looks, and the latest trend insights. A must-follow for anyone seeking creative inspiration!',
+                profileBadge: 'Creator',
                 
                 // タグ
                 tagCreative: 'Creative',
@@ -1561,6 +1579,28 @@
                 badgePopular: 'Popular',
                 badgeNew: 'New',
                 badgeExclusive: 'Exclusive',
+                badgeNewService: 'New Service',
+                
+                // ライブ活動
+                liveActivities: [
+                    'Uploading new video on YouTube...',
+                    'Updating Instagram stories...',
+                    'Analyzing trends on TikTok...',
+                    'Sharing real-time info on X...',
+                    'Working on new project...'
+                ],
+                
+                // モバイルメニュー
+                mobileMenuLanguage: 'Language / 言語',
+                mobileMenuTheme: 'Theme',
+                mobileMenuColorTheme: 'Color Theme',
+                mobileMenuDarkMode: 'Dark Mode',
+                langJapanese: '日本語',
+                langEnglish: 'English',
+                
+                // その他
+                thisMonth: 'this month',
+                focusbuddySubtitle: 'Task Management for ADHD Kids',
                 
                 // YouTube
                 youtubeValue: 'Behind-the-scenes & Exclusive Tutorials',
@@ -1617,6 +1657,19 @@
 
         // 現在の言語（デフォルトは日本語）
         let currentLang = 'ja';
+        
+        // ライブ活動更新関数（グローバルスコープ）
+        function updateLiveActivity() {
+            const liveContent = document.getElementById('liveContent');
+            if (liveContent && translations[currentLang] && translations[currentLang].liveActivities) {
+                const activities = translations[currentLang].liveActivities;
+                const currentActivity = liveContent.textContent;
+                const currentIndex = activities.indexOf(currentActivity);
+                if (currentIndex === -1) {
+                    liveContent.textContent = activities[0];
+                }
+            }
+        }
 
         // 安全な言語切替関数（拡張版）
         function switchLanguage(lang) {
@@ -1722,16 +1775,50 @@
                 badgeOfficial: document.querySelector('.badge-verified'),
                 badgePopular: document.querySelector('.badge-popular'),
                 badgeNew: document.querySelector('.badge-new'),
-                badgeExclusive: document.querySelector('.badge-exclusive')
+                badgeExclusive: document.querySelector('.badge-exclusive'),
+                profileBadge: document.querySelector('.profile-badge')
+            };
+            
+            // Focus Buddyのバッジを特別に処理
+            const focusBuddyBadge = socialLinks[4]?.querySelector('.badge-new');
+            if (focusBuddyBadge) {
+                focusBuddyBadge.textContent = translations[lang].badgeNewService;
+            }
+            
+            // Focus Buddyのサブタイトルを更新
+            const focusBuddySubtitle = socialLinks[4]?.querySelector('.social-handle');
+            if (focusBuddySubtitle) {
+                focusBuddySubtitle.textContent = translations[lang].focusbuddySubtitle;
+            }
+            
+            // モバイルメニューの要素を更新
+            const mobileMenuElements = {
+                mobileMenuLanguage: document.querySelector('.mobile-menu-section:nth-child(1) h3'),
+                mobileMenuTheme: document.querySelector('.mobile-menu-section:nth-child(2) h3'),
+                mobileMenuColorTheme: document.querySelector('.mobile-menu-section:nth-child(3) h3'),
+                mobileMenuDarkMode: document.querySelector('.theme-toggle.mobile span'),
+                langJapanese: document.querySelector('#lang-ja-mobile span:last-child'),
+                langEnglish: document.querySelector('#lang-en-mobile span:last-child')
             };
 
             // すべての要素グループを統合
-            const allElements = {...basicElements, ...tagElements, ...snsElements, ...badgeElements};
+            const allElements = {...basicElements, ...tagElements, ...snsElements, ...badgeElements, ...mobileMenuElements};
 
             // 各要素を安全に更新
             Object.keys(allElements).forEach(key => {
                 const element = allElements[key];
                 if (element && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // ライブ活動の表示を更新
+            updateLiveActivity();
+            
+            // data-i18n属性を持つ要素を更新
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
                     element.textContent = translations[lang][key];
                 }
             });
@@ -1756,19 +1843,21 @@
 
             // ライブ活動インジケーター
             const liveContent = document.getElementById('liveContent');
-            const activities = [
-                'YouTubeで新しい動画を投稿中...',
-                'Instagramストーリーを更新中...',
-                'TikTokでトレンド分析中...',
-                'Xでリアルタイム情報をシェア中...',
-                '新しいプロジェクトを制作中...'
-            ];
             
             let activityIndex = 0;
-            setInterval(() => {
-                activityIndex = (activityIndex + 1) % activities.length;
+            function updateLiveActivity() {
+                const activities = translations[currentLang].liveActivities;
                 liveContent.textContent = activities[activityIndex];
+            }
+            
+            setInterval(() => {
+                const activities = translations[currentLang].liveActivities;
+                activityIndex = (activityIndex + 1) % activities.length;
+                updateLiveActivity();
             }, 4000);
+            
+            // 初期表示
+            updateLiveActivity();
 
             // ダークモード切替
             const themeToggle = document.getElementById('theme-toggle');
@@ -1939,7 +2028,8 @@
                     const currentText = stat.textContent;
                     if (currentText.includes('%')) {
                         const randomGrowth = Math.floor(Math.random() * 30) + 10;
-                        const growthText = `+${randomGrowth}% 今月`;
+                        const monthText = translations[currentLang].thisMonth;
+                        const growthText = `+${randomGrowth}% ${monthText}`;
                         stat.innerHTML = `<i class="fas fa-trending-up"></i> <span>${growthText}</span>`;
                     }
                 });
