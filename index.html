@@ -8,6 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Playfair+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Dappier AI Widget -->
+    <script
+      src="https://assets.dappier.com/widget/dappier-loader.min.js"
+      widget-id="wd_01k01cfymmetg9j9jy7wym1k2e"
+    >
+    </script>
     <style>
         :root {
             --accent-color: #D4A574;
@@ -2063,6 +2070,110 @@
             if (urlLang && translations[urlLang]) {
                 switchLanguage(urlLang);
             }
+        });
+
+        // Dappier Widget Container - コンパクトなトグルボタン付き
+        document.addEventListener('DOMContentLoaded', function() {
+            // カスタムチャットボタンを作成
+            const chatToggleButton = document.createElement('button');
+            chatToggleButton.id = 'dappier-toggle-button';
+            chatToggleButton.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+                border: none;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                cursor: pointer;
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+            `;
+            chatToggleButton.innerHTML = `
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20Z" fill="white"/>
+                    <path d="M12 6C8.69 6 6 8.69 6 12C6 15.31 8.69 18 12 18C15.31 18 18 15.31 18 12C18 8.69 15.31 6 12 6ZM12 16.5C9.52 16.5 7.5 14.48 7.5 12C7.5 9.52 9.52 7.5 12 7.5C14.48 7.5 16.5 9.52 16.5 12C16.5 14.48 14.48 16.5 12 16.5Z" fill="white"/>
+                    <circle cx="12" cy="12" r="2" fill="white"/>
+                </svg>
+            `;
+            
+            // ホバー効果
+            chatToggleButton.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
+                this.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.2)';
+            });
+            
+            chatToggleButton.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+            });
+            
+            // ウィジェットコンテナを作成（初期状態は非表示）
+            const widgetContainer = document.createElement('div');
+            widgetContainer.id = 'dappier-widget-wrapper';
+            widgetContainer.style.cssText = `
+                position: fixed;
+                bottom: 90px;
+                right: 20px;
+                z-index: 9998;
+                display: none;
+                animation: slideIn 0.3s ease-out;
+            `;
+            
+            const widgetInner = document.createElement('div');
+            widgetInner.id = 'dappier-ask-ai-widget';
+            widgetInner.innerHTML = '<dappier-ask-ai-widget widgetId="wd_01k01cfymmetg9j9jy7wym1k2e" />';
+            widgetContainer.appendChild(widgetInner);
+            
+            // トグル機能
+            let isWidgetOpen = false;
+            chatToggleButton.addEventListener('click', function() {
+                isWidgetOpen = !isWidgetOpen;
+                if (isWidgetOpen) {
+                    widgetContainer.style.display = 'block';
+                    // アイコンを閉じるマークに変更
+                    this.innerHTML = `
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="white"/>
+                        </svg>
+                    `;
+                } else {
+                    widgetContainer.style.display = 'none';
+                    // アイコンを元に戻す
+                    this.innerHTML = `
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20Z" fill="white"/>
+                            <path d="M12 6C8.69 6 6 8.69 6 12C6 15.31 8.69 18 12 18C15.31 18 18 15.31 18 12C18 8.69 15.31 6 12 6ZM12 16.5C9.52 16.5 7.5 14.48 7.5 12C7.5 9.52 9.52 7.5 12 7.5C14.48 7.5 16.5 9.52 16.5 12C16.5 14.48 14.48 16.5 12 16.5Z" fill="white"/>
+                            <circle cx="12" cy="12" r="2" fill="white"/>
+                        </svg>
+                    `;
+                }
+            });
+            
+            // ページに追加
+            document.body.appendChild(chatToggleButton);
+            document.body.appendChild(widgetContainer);
+            
+            // アニメーションCSS追加
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
         });
     </script>
 </body>
